@@ -1,0 +1,14 @@
+lib/
+spec/
+deploy/
+coverage/
+.github/
+*.test.ts
+*.spec.ts
+tsconfig.json
+tsup.config.ts
+vitest.config.ts
+.env
+.env.local
+.DS_Store
+*.log
