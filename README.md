@@ -12,6 +12,12 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
   [![Tests](https://img.shields.io/badge/tests-passing-success?style=flat)](https://github.com/HudneyGomesNunes/TensorRent)
   
+  ### 🪙 Contract Address
+  
+  ```
+  bbUWiZJ5Q95g4iBLS5GXsvvrcfU1tCet8dpAZUqpump
+  ```
+  
   [Website](https://tensorrent.tech) · [Documentation](https://tensorrent.tech/docs) · [X/Twitter](https://x.com/TensorRent402)
 </div>
 
