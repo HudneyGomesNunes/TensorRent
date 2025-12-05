@@ -70,6 +70,7 @@ export class Session {
   getMetrics(): SessionMetrics {
     return {
       coresUsed: this.options.cores,
+      vramUsed: this.options.vram,
       timeElapsed: Date.now() - this.startTime,
       costAccumulated: this.costAccumulated,
       throughput: 0, // Mock
@@ -85,12 +86,15 @@ export class Session {
 
   private getRate(): number {
     const rates = {
-      standard: { cpu: 0.001, gpu: 0.004 },
-      performance: { cpu: 0.003, gpu: 0.012 },
-      extreme: { cpu: 0.008, gpu: 0.032 },
+      standard: { cpu: 0.001, gpu: 0.004, vram: 0.001 },
+      performance: { cpu: 0.003, gpu: 0.012, vram: 0.002 },
+      extreme: { cpu: 0.008, gpu: 0.032, vram: 0.004 },
     };
 
     const tierRates = rates[this.options.tier];
-    return tierRates[this.options.type];
+    const coreRate = tierRates[this.options.type] * this.options.cores;
+    const vramRate = this.options.vram ? tierRates.vram * this.options.vram : 0;
+    
+    return coreRate + vramRate;
   }
 }

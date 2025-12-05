@@ -65,9 +65,9 @@ export class TensorRent extends EventEmitter {
 
   async getPricing(): Promise<PricingTier[]> {
     return [
-      { tier: 'standard', cpuRate: 0.001, gpuRate: 0.004 },
-      { tier: 'performance', cpuRate: 0.003, gpuRate: 0.012 },
-      { tier: 'extreme', cpuRate: 0.008, gpuRate: 0.032 },
+      { tier: 'standard', cpuRate: 0.001, gpuRate: 0.004, vramRate: 0.001 },
+      { tier: 'performance', cpuRate: 0.003, gpuRate: 0.012, vramRate: 0.002 },
+      { tier: 'extreme', cpuRate: 0.008, gpuRate: 0.032, vramRate: 0.004 },
     ];
   }
 

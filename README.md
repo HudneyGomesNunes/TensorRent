@@ -23,7 +23,8 @@
 - **HTTP 402 micropayments** — Instant settlement on Solana blockchain
 - **HTTP 403 identity** — Zero-knowledge robot verification
 - **Multi-tier performance** — Standard, Performance, Extreme
-- **Real-time metrics** — Track cores, cost, and throughput
+- **VRAM allocation** — Allocate video memory for GPU workloads (8-48 GB)
+- **Real-time metrics** — Track cores, VRAM, cost, and throughput
 - **Event-driven architecture** — Subscribe to session and payment events
 - **TypeScript native** — Full type definitions included
 - **CLI included** — Manage sessions from terminal
@@ -53,10 +54,11 @@ const lease = new TensorRent({
   wallet: process.env.SOLANA_WALLET
 });
 
-// Acquire 4 GPU cores
+// Acquire 4 GPU cores with 16 GB VRAM
 const session = await lease.acquire({
   type: 'gpu',
   cores: 4,
+  vram: 16,
   tier: 'performance'
 });
 
@@ -83,6 +85,7 @@ const lease = new TensorRent({
 const session = await lease.acquire({
   type: 'gpu',
   cores: 8,
+  vram: 24,  // Allocate 24 GB of VRAM
   tier: 'extreme'
 });
 
@@ -265,11 +268,11 @@ Extend the current lease duration.
 
 ## 💰 Pricing
 
-| Tier | CPU | GPU |
-|------|-----|-----|
-| **Standard** | $0.001/ms | $0.004/ms |
-| **Performance** | $0.003/ms | $0.012/ms |
-| **Extreme** | $0.008/ms | $0.032/ms |
+| Tier | CPU | GPU | VRAM |
+|------|-----|-----|------|
+| **Standard** | $0.001/ms | $0.004/ms | $0.001/ms per GB |
+| **Performance** | $0.003/ms | $0.012/ms | $0.002/ms per GB |
+| **Extreme** | $0.008/ms | $0.032/ms | $0.004/ms per GB |
 
 *All payments settled instantly on Solana via HTTP 402 protocol.*
 

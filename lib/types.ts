@@ -9,12 +9,14 @@ export interface TensorRentConfig {
 export interface AcquireOptions {
   type: 'cpu' | 'gpu';
   cores: number;
+  vram?: number; // GB of video memory (GPU only)
   tier: 'standard' | 'performance' | 'extreme';
   duration?: number;
 }
 
 export interface SessionMetrics {
   coresUsed: number;
+  vramUsed?: number; // GB of VRAM used
   timeElapsed: number;
   costAccumulated: number;
   throughput: number;
@@ -45,6 +47,7 @@ export interface PricingTier {
   tier: string;
   cpuRate: number;
   gpuRate: number;
+  vramRate: number; // per GB per ms
 }
 
 export type EventType = 
